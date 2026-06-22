@@ -1,5 +1,5 @@
 import  dotenv  from 'dotenv';
-import { getStagedDiff, commitWithMessage } from './git';
+import {  commitWithMessage } from './git';
 import { generateCommitMessage } from './ai';
 import { execSync } from "node:child_process";
 
@@ -10,7 +10,7 @@ export async function run(){
   const shouldCommit = args.includes('--commit') || args.includes('-c');
   try {
     console.log('🔍 Читаю staged diff...');
-    // const diff = await getStagedDiff();
+
     const diff = execSync(
       "git diff --cached",
       { encoding: "utf8" }
