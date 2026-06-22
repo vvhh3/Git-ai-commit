@@ -7,7 +7,6 @@ dotenv.config()
 export async function run(): Promise<void> {
   const args = process.argv.slice(2);
   const shouldCommit = args.includes('--commit') || args.includes('-c');
-
   try {
     console.log('🔍 Читаю staged diff...');
     const diff = await getStagedDiff();
