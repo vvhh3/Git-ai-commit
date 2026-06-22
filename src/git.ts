@@ -1,13 +1,14 @@
-import simpleGit, { SimpleGit } from 'simple-git';
+import simpleGit, { SimpleGit } from 'simple-git'
 
-const git: SimpleGit = simpleGit();
+const git: SimpleGit = simpleGit()
 
-/**
- * Возвращает diff застейдженных файлов (git add ...).
- * Бросает ошибку, если нечего коммитить.
- */
+
+// Возвращает diff застейдженных файлов (git add ...)
+// Бросает ошибку, если нечего коммитить
+
 export async function getStagedDiff(): Promise<string> {
-  const isRepo = await git.checkIsRepo();
+  const isRepo = await git.checkIsRepo()
+
   if (!isRepo) {
     throw new Error('Текущая директория не является git-репозиторием.');
   }
@@ -18,12 +19,11 @@ export async function getStagedDiff(): Promise<string> {
     throw new Error('Нет застейдженных изменений. Сделай "git add <файлы>" перед генерацией.');
   }
 
-  return diff;
+  return diff
 }
 
-/**
- * Создаёт коммит с переданным сообщением.
- */
-export async function commitWithMessage(message: string): Promise<void> {
+// Создаёт коммит с переданным сообщением.
+
+export async function commitWithMessage(message: string) {
   await git.commit(message);
 }

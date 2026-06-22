@@ -4,7 +4,7 @@ import { generateCommitMessage } from './ai';
 
 dotenv.config()
 
-export async function run(): Promise<void> {
+export async function run(){
   const args = process.argv.slice(2);
   const shouldCommit = args.includes('--commit') || args.includes('-c');
   try {
