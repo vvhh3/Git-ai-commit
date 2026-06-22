@@ -4,7 +4,7 @@
   "description": "CLI-утилита: генерирует commit message по staged diff через AI",
   "type": "commonjs",
   "bin": {
-    "git-ai-commit": "bin/cli.js"
+    "git-ai": "bin/cli.js"
   },
   "main": "dist/cli.js",
   "scripts": {
