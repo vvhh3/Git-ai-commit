@@ -1,0 +1,27 @@
+{
+  "name": "git-ai-commit",
+  "version": "0.1.0",
+  "description": "CLI-утилита: генерирует commit message по staged diff через AI",
+  "type": "commonjs",
+  "bin": {
+    "git-ai-commit": "bin/cli.js"
+  },
+  "main": "dist/cli.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/cli.ts",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "simple-git": "^3.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
