@@ -28,3 +28,5 @@ export async function run(){
     process.exit(1);
   }
 }
+
+// node bin/cli.js -c 
