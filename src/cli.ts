@@ -6,7 +6,8 @@ import { execSync } from "node:child_process";
 dotenv.config()
 
 export async function run(){
-  const args = process.argv.slice(2);
+  const args = process.argv.slice(2)
+
   const shouldCommit = args.includes('--commit') || args.includes('-c');
   try {
     console.log('🔍 Читаю staged diff...');

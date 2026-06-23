@@ -10,7 +10,7 @@ const client = new Anthropic({
 
 const SYSTEM_PROMPT = `Ты помощник, который пишет commit-сообщения по git diff.
 Правила:
-- Одна строка, не длиннее 150 символов
+- Одна строка, не длиннее 200 символов
 - Пиши на русском
 - Без точки в конце
 - В ответе ТОЛЬКО само сообщение, без кавычек, без markdown, без пояснений`
@@ -20,9 +20,7 @@ export async function generateCommitMessage(diff: string): Promise<string> {
   const apiKey = process.env.OPENMODEL_API_KEY;
 
   if (!apiKey) {
-    throw new Error(
-      'Не найден OPENMODEL_API_KEY. Добавь его в .env (см. .env.example).'
-    );
+    throw new Error('Не найден OPENMODEL_API_KEY. Добавь его в .env (см. .env.example)')
   }
 
   const truncatedDiff = diff.length > 12000 ? diff.slice(0, 12000) + '\n...(diff обрезан)' : diff;
@@ -34,7 +32,7 @@ export async function generateCommitMessage(diff: string): Promise<string> {
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: truncatedDiff },
     ],
-    temperature: 0.3,
+    temperature: 0.4,
   })
 
   const textBlock = response.content.find((block) => block.type === "text")
