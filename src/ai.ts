@@ -5,23 +5,23 @@ dotenv.config()
 
 const client = new Anthropic({
   baseURL: "https://api.openmodel.ai",
-  apiKey: process.env.OPENROUTER_API_KEY,
+  apiKey: process.env.OPENMODEL_API_KEY,
 })
 
 const SYSTEM_PROMPT = `Ты помощник, который пишет commit-сообщения по git diff.
 Правила:
-- Одна строка, не длиннее 72 символов
+- Одна строка, не длиннее 150 символов
 - Пиши на русском
 - Без точки в конце
 - В ответе ТОЛЬКО само сообщение, без кавычек, без markdown, без пояснений`
 
 
 export async function generateCommitMessage(diff: string): Promise<string> {
-  const apiKey = process.env.OPENROUTER_API_KEY;
+  const apiKey = process.env.OPENMODEL_API_KEY;
 
   if (!apiKey) {
     throw new Error(
-      'Не найден OPENROUTER_API_KEY. Добавь его в .env (см. .env.example).'
+      'Не найден OPENMODEL_API_KEY. Добавь его в .env (см. .env.example).'
     );
   }
 

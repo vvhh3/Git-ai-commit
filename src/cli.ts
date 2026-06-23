@@ -13,7 +13,9 @@ export async function run(){
 
     const diff = execSync(
       "git diff --cached",
-      { encoding: "utf8" }
+      { encoding: "utf8",
+        maxBuffer: 20 * 1024 * 1024,
+      }
     )
     
     console.log(diff)
