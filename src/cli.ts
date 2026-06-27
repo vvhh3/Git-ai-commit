@@ -27,8 +27,8 @@ export async function run(){
     console.log(`\n📝 Предложенное сообщение:\n\n  ${message}\n`);
 
     if (shouldCommit) {
-      await commitWithMessage(message);
-      console.log('✅ Закоммичено!');
+      await commitWithMessage(message)
+      console.log('✅ Закоммичено!')
     } else {
       console.log('Чтобы сразу закоммитить с этим сообщением, запусти с флагом --commit (или -c)');
     }

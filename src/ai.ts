@@ -28,8 +28,8 @@ export async function generateCommitMessage(diff: string): Promise<string> {
   const response = await client.messages.create({
     model: "deepseek-v4-flash",
     max_tokens: 1024,
+    system: SYSTEM_PROMPT,
     messages: [
-      { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: truncatedDiff },
     ],
     temperature: 0.4,
